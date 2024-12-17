@@ -131,13 +131,11 @@ export default class UserController {
       if (!user) {
         return next(customErrorHandler(404, "User not found"));
       }
-      res
-        .status(200)
-        .json({
-          success: true,
-          message: "Password updated successfully!",
-          res: user,
-        });
+      res.status(200).json({
+        success: true,
+        message: "Password updated successfully!",
+        res: user,
+      });
     } catch (error) {
       console.error(`Error updating user password: ${error.message}`);
       return next(new customErrorHandler(500, "Internal Server Error"));
@@ -173,8 +171,23 @@ export default class UserController {
     try {
       const { id } = req.params;
       console.log(id);
-      console.log(req.body.userId);
+      console.log(req.user._id);
       const user = await this.userRepository.followUser(id, req.body.userId);
+      if (!user) {
+        return next(new customErrorHandler(404, "User not found"));
+      }
+      res.status(200).json({ success: true, res: user });
+    } catch (error) {
+      console.error(`Error updating followers: ${error.message}`);
+      return next(new customErrorHandler(500, "Internal Server Error"));
+    }
+  };
+
+  removeFollowers = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      console.log(id);
+      const user = await this.userRepository.unfollowUser(id, req.user._id);
       if (!user) {
         return next(new customErrorHandler(404, "User not found"));
       }
