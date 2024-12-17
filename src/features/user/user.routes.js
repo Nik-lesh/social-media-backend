@@ -16,5 +16,6 @@ router.put("/update-password", auth, userController.updateUserPassword);
 router.delete("/:id", auth, userController.deleteUser);
 router.post("/logout", auth, userController.logoutUser);
 router.get("/follow/:id", auth, userController.updateFollowers);
+router.get("/unfollow/:id", auth, userController.removeFollowers);
 
 export default router;
