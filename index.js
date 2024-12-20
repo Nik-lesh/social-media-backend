@@ -9,9 +9,11 @@ import cookieParser from "cookie-parser";
 import { cashe } from "./src/utils/cashe/cashe.js";
 
 const app = express();
-app.use(cashe);
+
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(cashe);
 app.use("/api/users", userRoutes);
 app.use("/api/users/post", postRoutes);
 app.use("/api/users/post", likeRoutes);

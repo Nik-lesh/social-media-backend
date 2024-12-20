@@ -6,8 +6,6 @@ import { customErrorHandler } from "../errorHandling/error.handling.js";
 export const auth = (req, res, next) => {
   try {
     const token = req.cookies.jwt;
-    console.log(req.cookies);
-    console.log("auth token", token);
     if (!token) {
       throw new customErrorHandler("Token not found");
     }
@@ -20,11 +18,9 @@ export const auth = (req, res, next) => {
     next();
   } catch (error) {
     console.error(`Error verifying token: ${error.message}`);
-    res
-      .status(401)
-      .json({
-        success: false,
-        message: "User has been logged out, please login to continue",
-      });
+    res.status(401).json({
+      success: false,
+      message: "User has been logged out, please login to continue",
+    });
   }
 };
