@@ -39,7 +39,7 @@ A comprehensive backend application for a social media platform built using **No
 - **Database**: MongoDB (Mongoose ORM)
 - **Authentication**: JWT (JSON Web Tokens), bcrypt
   - Dotenv for environment variables.
-  - Nodemon for development.
+  - Nodemon for development
 
 ## Getting Started
 
