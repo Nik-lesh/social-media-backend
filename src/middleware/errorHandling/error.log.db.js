@@ -19,7 +19,6 @@ const logger = createLogger({
       db: dbString,
       collection: "Error",
       tryReconnect: true,
-      level: "error",
     }),
   ],
 });

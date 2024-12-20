@@ -8,8 +8,7 @@ export const createComment = async (userId, postId, comment) => {
       const newComment = await CommentModel.findOneAndUpdate(
         { post: postId },
         { $push: { comments: { user: userId, content: comment } } },
-        { new: true },
-        { runValidators: true }
+        { new: true }
       );
       return newComment;
     } else {

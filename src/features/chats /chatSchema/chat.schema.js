@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 export const chatSchema = new mongoose.Schema(
-  {
+  {   
+    isGruop:{
+        type:Boolean,
+        default:false
+    },
     sender: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
