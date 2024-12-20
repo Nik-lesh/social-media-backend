@@ -6,9 +6,10 @@ import postRoutes from "./src/features/posts/post.routes.js";
 import likeRoutes from "./src/features/likes/like.routes.js";
 import commentRoutes from "./src/features/comments /comments.routes.js";
 import cookieParser from "cookie-parser";
+import { cashe } from "./src/utils/cashe/cashe.js";
 
 const app = express();
-
+app.use(cashe);
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/users", userRoutes);
