@@ -1,4 +1,4 @@
-import { PostModel } from "./schema /post.schema.js";
+import { PostModel } from "./schema/post.schema.js";
 import mongoose from "mongoose";
 import { customErrorHandler } from "../../middleware/errorHandling/error.handling.js";
 export const createPost = async (userId, post) => {

@@ -1,5 +1,5 @@
 import { LikeModel } from "./likeSchema/like.schema.js";
-import { PostModel } from "../posts/schema /post.schema.js";
+
 import mongoose from "mongoose";
 export const createLike = async (postId, userId) => {
   try {
